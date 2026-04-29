@@ -15,7 +15,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -23,15 +25,25 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.gitia.cartnova.R
+import com.gitia.cartnova.navigation.ROUTE_REGISTER
 import com.gitia.cartnova.ui.theme.darkestblue
+import com.gitia.cartnova.ui.theme.white
 
 @Composable
-fun OnboardingScreen1(){
+fun OnboardingScreen1(
+
+    navController: NavController
+
+){
 
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .paint(painterResource(com.gitia.cartnova.R.drawable.back), contentScale = ContentScale.FillBounds),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
 
@@ -61,18 +73,21 @@ fun OnboardingScreen1(){
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            text = "Whether you’re selling on Amazon, Flipkart, Myntra, or Ajio, we help you build your own branded website—no commissions, no restrictions. Take full control of your online store and customer experience",
+            text = "Millions of products await you in our vast market!",
             fontSize = 15.sp,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            color = white
         )
 
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(
-            onClick = {},
+            onClick = {
+                navController.navigate(ROUTE_REGISTER)
+            },
             colors = ButtonDefaults.buttonColors(darkestblue),
-            shape = RoundedCornerShape(10.dp),
-            modifier = Modifier.width(390.dp)
+            shape = RoundedCornerShape(5.dp),
+            modifier = Modifier.width(370.dp)
 
         ) {
             Text(text = "Get Started Now!")
@@ -120,7 +135,7 @@ fun OnboardingScreen1(){
 @Composable
 fun OnboardingScreen1Preview(){
 
-    OnboardingScreen1()
+    OnboardingScreen1(rememberNavController())
 
 
 

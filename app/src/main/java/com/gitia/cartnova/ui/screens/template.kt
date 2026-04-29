@@ -1,4 +1,4 @@
-package com.gitia.cartnova.ui.screens.payment
+package com.gitia.cartnova.ui.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,11 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun PaymentScreen(
-
-    navController: NavController
-
-){
+fun PaymentScreen(navController: NavController){
 
 
     Column(
